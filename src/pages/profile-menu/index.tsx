@@ -132,7 +132,7 @@ const ProfileMenu = () => {
         <div className="relative mt-[50px]">
           <ProfileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
           {isOpen && (
-            <div className="absolute  top-[55px] right-0  bg-white w-[240px] h-[428px]  rounded-md shadow pt-[12px]">
+            <div className="absolute  top-[55px] right-0  bg-white w-[240px] h-[425px]  rounded-md shadow pt-[12px]">
               {users.map((item) => (
                 <div className="flex items-center px-4 pb-[16px] justify-between">
                   <div className="flex">
@@ -155,16 +155,19 @@ const ProfileMenu = () => {
                 </div>
               ))}
               <div className="flex items-center justify-center px-4 pb-[12px]">
-                <button className="flex items-center justify-center border shadow border-neutral-200 w-full p-1.5  rounded-lg ">
+                <button className="flex items-center justify-center border shadow border-neutral-200 w-full p-1.5  rounded-lg hover:bg-delve-orange hover:text-white ">
                   + New Team
                 </button>
               </div>
               <ul>
                 {menuItems.map((item, index) => (
-                  <li className={` px-4 py-[8px] ${item.mark && "border-t border-b"} hover:bg-slate-200`} key={index}>
-                    <a className={`flex items-center ${item.warning && "text-delve-orange"}`} href="#">
+                  <li
+                    className={` px-4 py-[8px] ${item.mark ? "border-t border-b" : ""} hover:bg-gray-100`}
+                    key={index}
+                  >
+                    <a className={`flex items-center ${item.warning ? "text-delve-orange" : ""}`} href="#">
                       <span className="me-2">{item.icon}</span>{" "}
-                      <span className={` font-light ${item.warning && "!font-medium"} `}>{item.title}</span>
+                      <span className={` font-light ${item.warning ? "!font-medium" : ""} `}>{item.title}</span>
                     </a>
                   </li>
                 ))}
