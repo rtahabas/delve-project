@@ -58,7 +58,12 @@ const users = [
   },
 ];
 
-const ProfileMenuButton = ({ isOpen, setIsOpen }) => (
+type ProfileMenuButton = {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+};
+
+const ProfileMenuButton: React.FC<ProfileMenuButton> = ({ isOpen, setIsOpen }) => (
   <button
     className="flex items-center bg-neutral-200 rounded-full pr-4 pl-1 py-[0.3rem]"
     onClick={() => setIsOpen(!isOpen)}
@@ -90,7 +95,9 @@ const ProfileMenuButton = ({ isOpen, setIsOpen }) => (
   </button>
 );
 
-const Switch = ({ selected }) => {
+const Switch: React.FC<{
+  selected: boolean;
+}> = ({ selected }) => {
   return (
     <label className="inline-flex items-center cursor-pointer">
       <input
